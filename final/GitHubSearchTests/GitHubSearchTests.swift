@@ -13,15 +13,16 @@ final class GitHubSearchTests: XCTestCase {
     )
 
     store.dependencies.repoSearchClient.search = { _ in .mock }
+    store.dependencies.continuousClock = ImmediateClock()
 
     await store.send(.keywordChanged("Swift")) { store in
       store.keyword = "Swift"
     }
 
-    await store.send(.searchButtonTapped) { store in
+    await store.receive(.requestRepoSearch) { store in
       store.isLoading = true
     }
-
+    
     await store.receive(.dataLoaded(.success(.mock))) { store in
       store.isLoading = false
       store.searchResults = [
@@ -30,5 +31,26 @@ final class GitHubSearchTests: XCTestCase {
         RepositoryModel.Result(name: "SwiftAlgorithm", id: 3)
       ]
     }
+  }
+
+  func test_repoSearchResults_whenKeywordCleared() async {
+    let store = TestStore(
+      initialState: RepoSearch.State(),
+      reducer: RepoSearch()
+    )
+    let clock = TestClock()
+    store.dependencies.repoSearchClient.search = { _ in .mock }
+    store.dependencies.continuousClock = clock
+
+    await store.send(.keywordChanged("Swift")) { store in
+      store.keyword = "Swift"
+    }
+    await clock.advance(by: .seconds(0.2))
+
+    await store.send(.keywordChanged("")) { store in
+      store.keyword = ""
+    }
+
+    await store.receive(.cancelRepoSearch)
   }
 }
