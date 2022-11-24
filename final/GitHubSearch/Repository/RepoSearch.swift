@@ -15,6 +15,8 @@ struct RepoSearch: ReducerProtocol {
     case dataLoaded(TaskResult<RepositoryModel>)
   }
 
+  @Dependency(\.repoSearchClient) var repoSearchClient
+  
   func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
      switch action {
      case let .keywordChanged(keyword):
@@ -24,14 +26,19 @@ struct RepoSearch: ReducerProtocol {
      case .searchButtonTapped:
        state.isLoading = true
 
-       return Effect.run { [keyword = state.keyword] send in
-         guard let url = URL(string: "https://api.github.com/search/repositories?q=\(keyword)") else {
-           throw APIError.invalidUrlError
-         }
+//       return Effect.run { [keyword = state.keyword] send in
+//         guard let url = URL(string: "https://api.github.com/search/repositories?q=\(keyword)") else {
+//           throw APIError.invalidUrlError
+//         }
+//
+//         let (data, _) = try await URLSession.shared.data(from: url)
+//         let result = await TaskResult { try JSONDecoder().decode(RepositoryModel.self, from: data) }
+//
+//         await send(.dataLoaded(result))
+//       }
 
-         let (data, _) = try await URLSession.shared.data(from: url)
-         let result = await TaskResult { try JSONDecoder().decode(RepositoryModel.self, from: data) }
-
+       return .run { [keyword = state.keyword] send in
+         let result = await TaskResult { try await repoSearchClient.search(keyword) }
          await send(.dataLoaded(result))
        }
 
