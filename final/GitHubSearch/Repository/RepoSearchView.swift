@@ -2,8 +2,8 @@ import SwiftUI
 
 import ComposableArchitecture
 
-struct RepositorySearchView: View {
-  let store: StoreOf<RepositorySearch>
+struct RepoSearchView: View {
+  let store: StoreOf<RepoSearch>
 
   var body: some View {
     WithViewStore(store) { viewStore in
@@ -26,9 +26,16 @@ struct RepositorySearchView: View {
           }
           .padding()
 
-          List {
-            ForEach(viewStore.searchResults, id: \.self) {
-              Text($0)
+          Group {
+            if viewStore.isLoading {
+              ProgressView()
+              Spacer()
+            } else {
+              List {
+                ForEach(viewStore.searchResults) { repo in
+                  Text(repo.name)
+                }
+              }
             }
           }
         }
@@ -40,10 +47,10 @@ struct RepositorySearchView: View {
 
 struct RepoSearchView_Previews: PreviewProvider {
   static var previews: some View {
-    RepositorySearchView(
+    RepoSearchView(
       store: Store(
-        initialState: RepositorySearch.State(),
-        reducer: RepositorySearch()
+        initialState: RepoSearch.State(),
+        reducer: RepoSearch()
       )
     )
   }

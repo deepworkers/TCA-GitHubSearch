@@ -6,10 +6,10 @@ import ComposableArchitecture
 struct GitHubSearchApp: App {
   var body: some Scene {
     WindowGroup {
-      RepositorySearchView(
+      RepoSearchView(
         store: Store(
-          initialState: RepositorySearch.State(),
-          reducer: RepositorySearch()._printChanges()
+          initialState: RepoSearch.State(),
+          reducer: RepoSearch()._printChanges()
         )
       )
     }
