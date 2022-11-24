@@ -4,9 +4,20 @@ struct RepositorySearchView: View {
   @State private var searchKeyword = ""
   @State private var searchResults: [String] = []
 
+  private let sampleRepoLists = [
+    "Swarm",
+    "Swim",
+    "Switch",
+    "Swing",
+    "Swift",
+    "SwiftyJSON",
+    "SwiftGuide",
+    "SwiftterSwift",
+  ]
+
   var body: some View {
     NavigationView {
-      VStack(spacing: 0) {
+      VStack {
         HStack {
           TextField("Search repo", text: self.$searchKeyword)
             .textFieldStyle(.roundedBorder)
@@ -27,17 +38,6 @@ struct RepositorySearchView: View {
       .navigationTitle("Github Search")
     }
   }
-
-  private let sampleRepoLists = [
-    "Swarm",
-    "Swim",
-    "Switch",
-    "Swing",
-    "Swift",
-    "SwiftyJSON",
-    "SwiftGuide",
-    "SwiftterSwift",
-  ]
 }
 
 struct RepoSearchView_Previews: PreviewProvider {
