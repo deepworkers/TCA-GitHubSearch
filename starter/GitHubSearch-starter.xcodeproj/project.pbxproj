@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC248B64292F544300F128DE /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC248B63292F544300F128DE /* RepositoryModel.swift */; };
+		EC248B66292F549200F128DE /* RepoSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC248B65292F549200F128DE /* RepoSearchClient.swift */; };
+		EC248B68292F54E400F128DE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC248B67292F54E400F128DE /* APIError.swift */; };
 		EC88511A292F0ED100225818 /* GitHubSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC885119292F0ED100225818 /* GitHubSearchApp.swift */; };
 		EC88511E292F0ED200225818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC88511D292F0ED200225818 /* Assets.xcassets */; };
 		ECA0F637292F362D00F797C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA0F636292F362D00F797C8 /* Preview Assets.xcassets */; };
-		ECEA27ED292F0F7A0071A5B2 /* RepositorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA27EB292F0F7A0071A5B2 /* RepositorySearch.swift */; };
-		ECEA27EE292F0F7A0071A5B2 /* RepositorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA27EC292F0F7A0071A5B2 /* RepositorySearchView.swift */; };
+		ECEA27ED292F0F7A0071A5B2 /* RepoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA27EB292F0F7A0071A5B2 /* RepoSearch.swift */; };
+		ECEA27EE292F0F7A0071A5B2 /* RepoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA27EC292F0F7A0071A5B2 /* RepoSearchView.swift */; };
 		ECEA27F1292F10230071A5B2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = ECEA27F0292F10230071A5B2 /* ComposableArchitecture */; };
 		ECEA27F3292F10230071A5B2 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = ECEA27F2292F10230071A5B2 /* Dependencies */; };
 		ECEA27FB292F34E80071A5B2 /* GitHubSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA27FA292F34E80071A5B2 /* GitHubSearchTests.swift */; };
@@ -28,12 +31,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC248B63292F544300F128DE /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		EC248B65292F549200F128DE /* RepoSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchClient.swift; sourceTree = "<group>"; };
+		EC248B67292F54E400F128DE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		EC885116292F0ED100225818 /* GitHubSearch-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubSearch-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC885119292F0ED100225818 /* GitHubSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchApp.swift; sourceTree = "<group>"; };
 		EC88511D292F0ED200225818 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECA0F636292F362D00F797C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ECEA27EB292F0F7A0071A5B2 /* RepositorySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySearch.swift; sourceTree = "<group>"; };
-		ECEA27EC292F0F7A0071A5B2 /* RepositorySearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySearchView.swift; sourceTree = "<group>"; };
+		ECEA27EB292F0F7A0071A5B2 /* RepoSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoSearch.swift; sourceTree = "<group>"; };
+		ECEA27EC292F0F7A0071A5B2 /* RepoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoSearchView.swift; sourceTree = "<group>"; };
 		ECEA27F8292F34E80071A5B2 /* GitHubSearch-starter-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHubSearch-starter-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEA27FA292F34E80071A5B2 /* GitHubSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				EC885119292F0ED100225818 /* GitHubSearchApp.swift */,
+				EC248B67292F54E400F128DE /* APIError.swift */,
 				ECEA27EA292F0F7A0071A5B2 /* Repository */,
 				ECEA2801292F35C00071A5B2 /* Resources */,
 			);
@@ -97,8 +104,10 @@
 		ECEA27EA292F0F7A0071A5B2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				ECEA27EC292F0F7A0071A5B2 /* RepositorySearchView.swift */,
-				ECEA27EB292F0F7A0071A5B2 /* RepositorySearch.swift */,
+				ECEA27EC292F0F7A0071A5B2 /* RepoSearchView.swift */,
+				ECEA27EB292F0F7A0071A5B2 /* RepoSearch.swift */,
+				EC248B63292F544300F128DE /* RepositoryModel.swift */,
+				EC248B65292F549200F128DE /* RepoSearchClient.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -228,8 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC88511A292F0ED100225818 /* GitHubSearchApp.swift in Sources */,
-				ECEA27ED292F0F7A0071A5B2 /* RepositorySearch.swift in Sources */,
-				ECEA27EE292F0F7A0071A5B2 /* RepositorySearchView.swift in Sources */,
+				EC248B64292F544300F128DE /* RepositoryModel.swift in Sources */,
+				ECEA27ED292F0F7A0071A5B2 /* RepoSearch.swift in Sources */,
+				ECEA27EE292F0F7A0071A5B2 /* RepoSearchView.swift in Sources */,
+				EC248B66292F549200F128DE /* RepoSearchClient.swift in Sources */,
+				EC248B68292F54E400F128DE /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

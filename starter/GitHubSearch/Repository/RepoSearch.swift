@@ -1,6 +1,6 @@
 import ComposableArchitecture
 
-struct RepositorySearch: ReducerProtocol {
+struct RepoSearch: ReducerProtocol {
   struct State: Equatable {
     // TODO: 지금 앱은 어떤 상태들로 정의되는가?
     // searchKeyword와 searchResults 상태 추가하기

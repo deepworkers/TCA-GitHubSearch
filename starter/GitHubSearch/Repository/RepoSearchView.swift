@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RepositorySearchView: View {
+struct RepoSearchView: View {
   @State private var searchKeyword = ""
   @State private var searchResults: [String] = []
 
@@ -38,6 +38,6 @@ struct RepositorySearchView: View {
 
 struct RepoSearchView_Previews: PreviewProvider {
   static var previews: some View {
-    RepositorySearchView()
+    RepoSearchView()
   }
 }
