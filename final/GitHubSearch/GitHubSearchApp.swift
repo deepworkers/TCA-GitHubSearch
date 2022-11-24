@@ -9,7 +9,7 @@ struct GitHubSearchApp: App {
       RepositorySearchView(
         store: Store(
           initialState: RepositorySearch.State(),
-          reducer: RepositorySearch()
+          reducer: RepositorySearch()._printChanges()
         )
       )
     }
