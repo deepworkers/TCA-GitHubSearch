@@ -5,10 +5,6 @@ struct RepositorySearchView: View {
   @State private var searchResults: [String] = []
 
   private let sampleRepoLists = [
-    "Swarm",
-    "Swim",
-    "Switch",
-    "Swing",
     "Swift",
     "SwiftyJSON",
     "SwiftGuide",
