@@ -1,6 +1,7 @@
 import Foundation
-import XCTestDynamicOverlay
+
 import ComposableArchitecture
+import XCTestDynamicOverlay
 
 struct RepoSearchClient {
   var search: @Sendable (String) async throws -> RepositoryModel

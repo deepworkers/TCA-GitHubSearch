@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RepoSearchView: View {
-  @State private var searchKeyword = ""
+  @State private var keyword = ""
   @State private var searchResults: [String] = []
 
   private let sampleRepoLists = [
@@ -15,12 +15,12 @@ struct RepoSearchView: View {
     NavigationView {
       VStack {
         HStack {
-          TextField("Search repo", text: self.$searchKeyword)
+          TextField("Search repo", text: self.$keyword)
             .textFieldStyle(.roundedBorder)
 
           Button("Search") {
             self.searchResults = self.sampleRepoLists.filter {
-              $0.contains(self.searchKeyword)
+              $0.contains(self.keyword)
             }
           }
           .buttonStyle(.borderedProminent)

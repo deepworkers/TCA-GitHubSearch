@@ -1,5 +1,3 @@
-import Foundation
-
 struct RepositoryModel: Decodable, Equatable, Sendable {
   var items: [Result]
 
